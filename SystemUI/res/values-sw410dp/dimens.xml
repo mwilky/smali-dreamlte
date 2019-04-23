@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="qs_detail_height">522.0dip</dimen>
+    <dimen name="qs_edit_tile_layout_margin_side">22.0dip</dimen>
+    <dimen name="qs_page_indicator_container_height">19.0dip</dimen>
+    <dimen name="qs_page_indicator_container_width">19.0dip</dimen>
+    <dimen name="qs_tile_text_size">14.0sp</dimen>
+</resources>
