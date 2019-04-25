@@ -3,7 +3,7 @@
 .source "SystemUIResourceFactory.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+.implements Lcom/android/systemui/globalactions/presentation/view/ResourceFactory;
 
 
 # direct methods

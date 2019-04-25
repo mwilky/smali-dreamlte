@@ -3,7 +3,7 @@
 .source "SecGlobalActionsAnalyticsImpl.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/util/SecGlobalActionsAnalytics;
+.implements Lcom/android/systemui/globalactions/util/SecGlobalActionsAnalytics;
 
 
 # direct methods
