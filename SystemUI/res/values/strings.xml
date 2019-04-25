@@ -3633,4 +3633,6 @@ Any user can update apps for all other users."</string>
     <item type="string" name="APKTOOL_DUMMY_b1e">false</item>
     <item type="string" name="APKTOOL_DUMMY_b1f">false</item>
     <item type="string" name="APKTOOL_DUMMY_bb1">false</item>
+    <item type="string" name="rebootrecovery">Recovery</item>
+    <item type="string" name="rebootrecovery2">Tap again to reboot to recovery</item>
 </resources>

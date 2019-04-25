@@ -1,0 +1,100 @@
+.class Lcom/android/server/desktopmode/TouchpadManager$3;
+.super Landroid/content/BroadcastReceiver;
+.source "TouchpadManager.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/desktopmode/TouchpadManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/android/server/desktopmode/TouchpadManager;
+
+
+# direct methods
+.method constructor <init>(Lcom/android/server/desktopmode/TouchpadManager;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/desktopmode/TouchpadManager$3;->this$0:Lcom/android/server/desktopmode/TouchpadManager;
+
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "com.samsung.pen.INSERT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/desktopmode/TouchpadManager$3;->this$0:Lcom/android/server/desktopmode/TouchpadManager;
+
+    const-string/jumbo v2, "penInsert"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    xor-int/2addr v2, v3
+
+    invoke-static {v1, v2}, Lcom/android/server/desktopmode/TouchpadManager;->access$202(Lcom/android/server/desktopmode/TouchpadManager;Z)Z
+
+    sget-boolean v1, Lcom/samsung/android/desktopmode/DesktopModeFeature;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/server/desktopmode/TouchpadManager;->access$400()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "mIsSPenDetached="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, p0, Lcom/android/server/desktopmode/TouchpadManager$3;->this$0:Lcom/android/server/desktopmode/TouchpadManager;
+
+    invoke-static {v3}, Lcom/android/server/desktopmode/TouchpadManager;->access$200(Lcom/android/server/desktopmode/TouchpadManager;)Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/desktopmode/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/desktopmode/TouchpadManager$3;->this$0:Lcom/android/server/desktopmode/TouchpadManager;
+
+    invoke-static {v1}, Lcom/android/server/desktopmode/TouchpadManager;->access$300(Lcom/android/server/desktopmode/TouchpadManager;)V
+
+    :cond_1
+    return-void
+.end method
