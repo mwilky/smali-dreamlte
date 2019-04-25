@@ -20623,6 +20623,10 @@
     const-string v3, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    
+    const-string v3, "com.mwilky.SERVICES"
+
+    invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     iget-object v3, v1, Lcom/android/server/policy/PhoneWindowManager;->mDockReceiver:Landroid/content/BroadcastReceiver;
 
@@ -34696,6 +34700,49 @@
 
     :cond_5
     invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    return-void
+.end method
+
+.method public OnActionReceived(Ljava/lang/String;)V
+    .locals 3
+
+    if-eqz p1, :cond_exit 
+
+    const-string v0, "RECOVERY"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_exit
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->goToRecovery()V
+
+    :cond_exit
+    return-void
+.end method
+
+.method public goToRecovery()V
+    .locals 5
+
+    const-string/jumbo v0, "power"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "recovery"
+
+    const/4 v3, 0x0
+
+    invoke-interface {v0, v1, v2, v3}, Landroid/os/IPowerManager;->reboot(ZLjava/lang/String;Z)V
 
     return-void
 .end method
